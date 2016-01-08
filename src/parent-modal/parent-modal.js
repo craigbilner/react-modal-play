@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import Button from 'react-bootstrap/lib/Button';
 import Modal from 'react-overlays/lib/Modal';
 import ChildModal from '../child-modal/child-modal';
@@ -8,7 +8,11 @@ export default class ParentModal extends Component {
     super(props);
     this.state = {
       show: false,
+      num: 1,
     };
+
+    this.show = this.show.bind(this);
+    this.closeChild = this.closeChild.bind(this);
   }
 
   show() {
@@ -17,29 +21,39 @@ export default class ParentModal extends Component {
     });
   }
 
-  close() {
+  closeChild() {
     this.setState({
       show: false,
     });
   }
 
+  getModalStyle() {
+    return {
+      border: '1px solid red',
+    };
+  }
+
   render() {
+    console.log('rendering', 'parent-modal');
+
     return (
       <div>
-        <Button onClick={this.show.bind(this)}>show modal</Button>
+        <Button onClick={this.show}>show modal</Button>
         <Modal
           show={this.state.show}
-          onHide={this.close.bind(this)}
+          style={this.getModalStyle()}
+          autofocus="false"
         >
           <div>
-            <h1 onClick={this.close.bind(this)}>a modal</h1>
-            <div>stuff goes here</div>
-            <ChildModal />
+            <h1>a parent modal</h1>
+
+            <ChildModal
+              close={this.closeChild}
+              num={this.state.num}
+            />
           </div>
         </Modal>
       </div>
     );
   }
 }
-
-ParentModal.propTypes = {};

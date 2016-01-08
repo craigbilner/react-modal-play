@@ -1,9 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import Button from 'react-bootstrap/lib/Button';
 import Modal from 'react-overlays/lib/Modal';
-import ChildModal from '../child-modal/child-modal';
 
-export default class ParentModal extends Component {
+export default class ChildModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -42,4 +41,4 @@ export default class ParentModal extends Component {
   }
 }
 
-ParentModal.propTypes = {};
+ChildModal.propTypes = {};

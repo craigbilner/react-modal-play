@@ -1,0 +1,39 @@
+{
+  "name": "react-modal-play",
+  "version": "0.0.1",
+  "description": "Messing around with modals",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint index.js ./src/**/*.js",
+    "build": "webpack && open index.html",
+    "build:watch": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/craigbilner/react-modal-play.git"
+  },
+  "keywords": [
+    "react",
+    "bootstrap",
+    "modal"
+  ],
+  "author": "Craig Bilner",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/craigbilner/react-modal-play/issues"
+  },
+  "homepage": "https://github.com/craigbilner/react-modal-play#readme",
+  "devDependencies": {
+    "babel-cli": "^6.4.0",
+    "babel-core": "^6.4.0",
+    "babel-loader": "^6.2.1",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "eslint": "^1.10.3",
+    "eslint-config-airbnb": "^3.1.0",
+    "eslint-plugin-react": "^3.14.0",
+    "react": "^0.14.6",
+    "react-dom": "^0.14.6",
+    "webpack": "^1.12.10"
+  }
+}

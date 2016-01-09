@@ -1,5 +1,5 @@
 import React from 'react';
 import { render } from 'react-dom';
-import ParentModal from './src/parent-modal/parent-modal';
+import App from './src/app';
 
-render(<ParentModal />, document.getElementById('main'));
+render(<App />, document.getElementById('main'));

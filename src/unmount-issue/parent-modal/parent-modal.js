@@ -8,17 +8,16 @@ export default class ParentModal extends Component {
     super(props);
     this.state = {
       show: false,
-      num: 1,
     };
 
     this.show = this.show.bind(this);
     this.closeChild = this.closeChild.bind(this);
   }
 
-  show() {
-    this.setState({
-      show: true,
-    });
+  getModalStyle() {
+    return {
+      border: '1px solid red',
+    };
   }
 
   closeChild() {
@@ -27,10 +26,10 @@ export default class ParentModal extends Component {
     });
   }
 
-  getModalStyle() {
-    return {
-      border: '1px solid red',
-    };
+  show() {
+    this.setState({
+      show: true,
+    });
   }
 
   render() {
@@ -49,7 +48,6 @@ export default class ParentModal extends Component {
 
             <ChildModal
               close={this.closeChild}
-              num={this.state.num}
             />
           </div>
         </Modal>

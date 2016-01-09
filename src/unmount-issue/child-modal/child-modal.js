@@ -10,19 +10,6 @@ export default class ChildModal extends Component {
     };
   }
 
-  getModal(num) {
-    console.log(num);
-    if (num >= 0.5) {
-      return (
-        <Modal
-          show
-        >
-          <div>randomly generated grandchild</div>
-        </Modal>
-      );
-    }
-  }
-
   getModalStyle() {
     return {
       border: '1px solid green',
@@ -36,7 +23,11 @@ export default class ChildModal extends Component {
       <div style={this.getModalStyle()}>
         <h1>a child modal</h1>
         <Button onClick={this.props.close}>close child modal</Button>
-        {this.getModal(this.props.num)}
+        <Modal
+          show
+        >
+          <div>grandchild</div>
+        </Modal>
       </div>
     );
   }
@@ -44,5 +35,4 @@ export default class ChildModal extends Component {
 
 ChildModal.propTypes = {
   close: PropTypes.func,
-  num: PropTypes.number,
 };

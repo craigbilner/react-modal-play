@@ -4,20 +4,20 @@ Issues relating to [react refs](https://facebook.github.io/react/docs/more-about
 
 ## unmount issue
 
-Reproduction:
+### Reproduction:
 
 * click show modal
 * click close child modal
 
-Result:
+### Result:
 
-```
+```javascript
 Uncaught TypeError: node.removeAttribute is not a function
 ```
 
-Problem:
+### Problem:
 
-```
+```javascript
 var setMountNode = function setMountNode(ref) {
     return _this.mountNode = !ref || ref.getMountNode();
 };
@@ -25,9 +25,9 @@ var setMountNode = function setMountNode(ref) {
 
 setMountNode is called with null and returns a boolean which doesn't work so well with ```node.removeAttribute('aria-hidden');```
 
-Potential Fix:
+### Potential Fix:
 
-```
+```javascript
 var setMountNode = function setMountNode(ref) {
     if(ref && ref.getMountNode) {
         _this.mountNode = ref.getMountNode();
@@ -37,12 +37,12 @@ var setMountNode = function setMountNode(ref) {
 
 ## ref issue
 
-Reproduction:
+### Reproduction:
 
 * click show modal
 * click show grand child
 
-Result:
+### Result:
 
 ```
 ReactRef.detachRefs(internalInstance, prevElement);
@@ -50,6 +50,6 @@ ReactRef.detachRefs(internalInstance, prevElement);
 
 this code is unnecessarily run
 
-Potential Fix:
+### Potential Fix:
 
 move setMountNode to the class instance so the refs are the same
